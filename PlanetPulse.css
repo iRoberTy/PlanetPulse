@@ -1,8 +1,29 @@
 .py-3 {
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
-  }
-  .my-4 {
+}
+.my-4 {
     margin-top: 1.5rem !important;
     margin-bottom: 1.5rem !important;
-  }
+}
+body {
+    font-family: 'Arial', sans-serif;
+}
+/*Navigation Hover*/
+.navbar-nav .nav-link:hover {
+    color: #ffd700;
+}
+.card {
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: scale(1.05); /*beim Hover vergrößern*/
+}
+/*Footer-Links*/
+footer .nav-link {
+    opacity: 0.8;
+}
+
+footer .nav-link:hover {
+    opacity: 1;
+}
