@@ -6,9 +6,6 @@
     margin-top: 1.5rem !important;
     margin-bottom: 1.5rem !important;
 }
-body {
-    font-family: 'Arial', sans-serif;
-}
 /*Navigation Hover*/
 .navbar-nav .nav-link:hover {
     color: #ffd700;
@@ -17,7 +14,7 @@ body {
     transition: transform 0.3s;
 }
 .card:hover {
-    transform: scale(1.35); /*beim Hover vergrößern*/
+    transform: scale(1.05); /*beim Hover vergrößern*/
 }
 /*Footer-Links*/
 footer .nav-link {
@@ -26,4 +23,44 @@ footer .nav-link {
 
 footer .nav-link:hover {
     opacity: 1;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Volle Bildschirmhöhe */
+    padding: 20px;
+    background-color: #f4f4f4; /* Hintergrundfarbe */
+}
+
+table {
+    width: 90%;
+    max-width: 1200px; /* Maximalbreite der Tabelle */
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /*leichte Schattierung */
+}
+
+/* Tabellenzellen schöner gestalten */
+th, td {
+    text-align: center;
+    padding: 15px;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+tbody tr:hover {
+    background-color: #ddd; /* Hover-Effekt */
 }
