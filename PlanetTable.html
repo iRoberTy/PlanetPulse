@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="iRoberTy/planetpulse.ico">
-    <title>PlanetPulse</title>
+    <title>CO₂-Emissionen nach Ländern</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="PlanetPulse.css">
 </head>
@@ -18,37 +18,39 @@
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="#">Pulse</a></li>
-                    <li class="nav-item"><a class="nav-link" href="PlanetTable.html">CO<sub>2</sub>-Emissionen</a></li>
+                    <li class="nav-item"><a class="nav-link" href="PlanetPulse.html">Pulse</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">CO<sub>2</sub>-Emissionen</a></li>
                     <li class="nav-item"><a class="nav-link" href="PlanetDead.html" target="_blank">Bedrohung des Lebens</a></li>
                     <li class="nav-item"><a class="nav-link" href="PlanetHelp.html">Was kannst DU tun?</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- Hauptinhalt -->
     <main class="container my-5">
-        <section id="introduction" class="text-center">
-            <h1>Willkommen bei PlanetPulse</h1>
-            <p class="lead">Erfahre mehr über den Klimawandel, CO<sub>2</sub>-Emissionen und deren Auswirkungen auf unseren Planeten.</p>
-        </section>
-        <section id="emissionen" class="mt-5">
-            <h2>Jährliche CO<sub>2</sub>-Emissionen</h2>
-            <p>CO<sub>2</sub>-Emissionen sind der Haupttreiber der globalen Erwärmung. Seit der industriellen Revolution haben menschliche Aktivitäten den CO<sub>2</sub>-Gehalt in der Atmosphäre um über 50 % erhöht.</p>
-            <p><strong>Wichtige Fakten:</strong></p>
-            <ul>
-                <li>Die letzten zehn Jahre waren die wärmsten seit Beginn der Aufzeichnungen.</li>
-                <li>Die globale Durchschnittstemperatur ist bereits um 1,2°C gestiegen.</li>
-                <li>Steigende CO<sub>2</sub>-Werte führen zu extremeren Wetterbedingungen.</li>
-            </ul>
-            <img src="Umweltverschmutzung.webp" class="img-fluid rounded shadow mt-3" alt="Umweltverschmutzung">
-        </section>
-        <section id="natur" class="mt-5">
-            <h2>Die Bedeutung der Natur</h2>
-            <p>Bäume und Ozeane sind entscheidend für den Klimaschutz. Sie absorbieren jährlich etwa 50 % des durch Menschen verursachten CO<sub>2</sub>.</p>
-            <p>Regenwälder, insbesondere der Amazonas, gelten als "Lungen der Erde", doch sie sind durch Abholzung bedroht.</p>
-            <img src="Regenwald.webp" class="img-fluid rounded shadow mt-3" alt="Regenwald">
-        </section>
+        <div class="table-container">
+            <h2 class="text-center">CO₂-Emissionen nach Ländern</h2>
+            <table id="co2-table" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Land</th>
+                        <th>CO₂ (in Mio. Tonnen)</th>
+                        <th>Welt-%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>China</td><td>11.535</td><td>30,3</td></tr>
+                    <tr><td>USA</td><td>5.107</td><td>13,4</td></tr>
+                    <tr><td>Indien</td><td>2.597</td><td>6,8</td></tr>
+                    <tr><td>EU</td><td>2.287</td><td>6,0</td></tr>
+                    <tr><td>Russland</td><td>1.792</td><td>4,7</td></tr>
+                    <tr><td>Japan</td><td>1.162</td><td>3,1</td></tr>
+                    <tr><td>Iran</td><td>780</td><td>2,0</td></tr>
+                    <tr><td>Saudi-Arabien</td><td>635</td><td>1,7</td></tr>
+                    <tr><td>Südkorea</td><td>611</td><td>1,6</td></tr>
+                    <tr><td>Indonesien</td><td>588</td><td>1,5</td></tr>
+                </tbody>
+            </table>
+        </div>
     </main>
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 mt-5">
@@ -63,6 +65,5 @@
             <p class="mb-0">&copy; 2025 PlanetPulse SE</p>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

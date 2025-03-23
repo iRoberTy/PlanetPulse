@@ -1,66 +1,115 @@
+/* Allgemeine Abstände */
 .py-3 {
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
 }
+
 .my-4 {
     margin-top: 1.5rem !important;
     margin-bottom: 1.5rem !important;
 }
-/*Navigation Hover*/
-.navbar-nav .nav-link:hover {
-    color: #ffd700;
+
+/* Navigation Hover-Effekt */
+.navbar-nav .nav-link {
+    color: white;
+    transition: color 0.3s ease-in-out;
 }
+
+.navbar-nav .nav-link:hover {
+    color: #ffd700; /* Goldener Hover-Effekt */
+}
+
+/* Karten (z.B. Infoboxen) */
 .card {
     transition: transform 0.3s;
+    background: rgba(255, 255, 255, 0.85); /* Leicht transparente Karten */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 .card:hover {
-    transform: scale(1.05); /*beim Hover vergrößern*/
+    transform: scale(1.05); /* Beim Hover leicht vergrößern */
 }
-/*Footer-Links*/
+
+/* Footer-Links */
 footer .nav-link {
-    opacity: 0.8;
+    opacity: 0.9;
+    color: white;
+    transition: opacity 0.3s ease-in-out;
 }
 
 footer .nav-link:hover {
     opacity: 1;
+    color: #ffd700;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+/* Hintergrundbild der Website */
+body {
+    background-image: url('Planet.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white; /* Standardfarbe für besseren Kontrast */
     font-family: Arial, sans-serif;
+    position: relative;
 }
 
+/* Abdunklung für bessere Lesbarkeit */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Abdunklung für bessere Lesbarkeit */
+    z-index: -1;
+}
+
+/* Tabellen-Styling */
 .table-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Volle Bildschirmhöhe */
+    height: 100vh;
     padding: 20px;
-    background-color: #f4f4f4; /* Hintergrundfarbe */
+    background: rgba(0, 0, 0, 0.5); /* Leicht dunkler Hintergrund für Kontrast */
+    border-radius: 10px;
 }
 
 table {
     width: 90%;
-    max-width: 1200px; /* Maximalbreite der Tabelle */
-    background: white;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /*leichte Schattierung */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Tabellenzellen schöner gestalten */
+/* Tabellen-Textfarbe */
 th, td {
     text-align: center;
     padding: 15px;
+    color: black;
 }
 
 th {
-    background-color: #333;
+    background-color: #222;
     color: white;
 }
 
+/* Hover-Effekt für Tabellenreihen */
 tbody tr:hover {
-    background-color: #ddd; /* Hover-Effekt */
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+
+    .table-container {
+        height: auto;
+    }
 }
