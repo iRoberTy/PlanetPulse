@@ -19,14 +19,47 @@ h1 {
   text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
 }
 
-/* ========== Navigation ========== */
-.navbar-nav .nav-link {
-  color: #AAD1E7;
-  transition: color 0.3s ease;
+/* Dynamische Navbar */
+.navbar {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  background: linear-gradient(90deg, #284F8F, #4682B4, #5D8AA8, #4682B4, #284F8F);
+  background-size: 300% 100%;
+  animation: navbarGradient 15s ease infinite;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.navbar-nav .nav-link:hover {
-  color: #161f2e;
+@keyframes navbarGradient {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+.navbar .navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.1rem;
+  padding: 0.6rem 1.2rem;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #1C2833;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
 }
 
 /* ========== Karten (z. B. Abschnitte mit Bild/Text) ========== */
@@ -60,34 +93,50 @@ footer .nav-link:hover {
 }
 
 /* ========== Tabelle ========== */
-.table {
-  width: 100%;
-  max-width: 1000px;
-  background: #5D8AA8; /* Haupt-Hintergrund kühles blau */
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  border-collapse: collapse;
-}
-
 .table th, .table td {
   padding: 0.8rem 1rem;
   text-align: center;
   font-size: 1rem;
 }
 
-/* Tabellenkopf */
-.table th {
-  background: #AEC6CF;
-  color: #1C2833;
-  font-weight: bold;
-  cursor: pointer;
-  user-select: none;
-  position: relative;
-  font-size: 1rem;
-  text-shadow: 0 1px 0 #fff;
-  padding: 0.9rem 1rem;
+.table {
+  width: 100%;
+  max-width: 1000px;
+  background: rgba(170, 209, 231, 0.1); /* #AAD1E7 mit Transparenz */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(170, 209, 231, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
+.table th {
+  background: rgba(170, 209, 231, 0.25);
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem;
+  text-shadow: 0 0 6px rgba(170, 209, 231, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table td {
+  color: #AAD1E7;
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover Effekt */
+.table tbody tr:hover {
+  background: rgba(170, 209, 231, 0.12);
+  transform: scale(1.01);
+  box-shadow: inset 0 0 8px rgba(170, 209, 231, 0.2);
+}
+
 
 /* Sortiersymbole */
 th.sort-asc::after {
@@ -98,20 +147,6 @@ th.sort-asc::after {
 th.sort-desc::after {
   content: " ▼";
   font-size: 0.8rem;
-}
-
-/* Tabelleninhalt */
-.table td {
-  color: #fff;
-  background-color: #5D8AA8;
-  padding: 0.8rem 1rem;
-  transition: background-color 0.2s ease;
-}
-
-/* Hover-Effekt mit "Glow" */
-.table tbody tr:hover {
-  background-color: #729fb9;
-  box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.04);
 }
 
 /* ========= Filter-Buttons ========= */
