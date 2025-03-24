@@ -1,5 +1,14 @@
 import React from "react";
+import CO2Table from "./Table";
+import './App.css';
 
+function App() {
+  return (
+    <div>
+      <CO2Table />
+    </div>
+  );
+}
 function App() {
   return (
     <div>
