@@ -1,97 +1,169 @@
-/* Layout */
+/* ========== Grundlayout ========== */
 body {
-    background: url('Planet.webp') center/cover fixed no-repeat;
-    color: white;
-    font-family: Arial, sans-serif;
-    position: relative;
-    margin: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: url('Planet.webp') center/cover fixed no-repeat;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7); /* Abdunklung */
+  z-index: -1;
+}
+
+/* ========== Navigation ========== */
+.navbar-nav .nav-link {
+  color: #AAD1E7;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #161f2e;
+}
+
+/* ========== Karten (z. B. Abschnitte mit Bild/Text) ========== */
+.card {
+  background: #AAD1E7;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* ========== Footer ========== */
+footer .nav-link {
+  color: #AAD1E7;
+  transition: color 0.3s ease;
+}
+
+footer .nav-link:hover {
+  color: #284F8F;
+}
+
+/* ========== Tabellencontainer ========== */
+.table-container {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========== Tabelle ========== */
+.table {
+  width: 100%;
+  max-width: 1000px;
+  background: #5D8AA8; /* Haupt-Hintergrund kühles blau */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 0.8rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Tabellenkopf */
+.table th {
+  background: #AEC6CF;
+  color: #1C2833;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  font-size: 1rem;
+  text-shadow: 0 1px 0 #fff;
+  padding: 0.9rem 1rem;
+}
+
+/* Sortiersymbole */
+th.sort-asc::after {
+  content: " ▲";
+  font-size: 0.8rem;
+}
+
+th.sort-desc::after {
+  content: " ▼";
+  font-size: 0.8rem;
+}
+
+/* Tabelleninhalt */
+.table td {
+  color: #fff;
+  background-color: #5D8AA8;
+  padding: 0.8rem 1rem;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover-Effekt mit "Glow" */
+.table tbody tr:hover {
+  background-color: #729fb9;
+  box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.04);
+}
+
+/* ========= Filter-Buttons ========= */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+  background-color: transparent;
+  border: 2px solid #AAD1E7;
+  color: #AAD1E7;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: #AAD1E7;
+  color: #1C2833;
+}
+
+.filter-btn.active {
+  background-color: #284F8F;
+  color: white;
+  border-color: #284F8F;
+}
+
+section.text-center.mt-5 a.btn {
+  border-color: #AAD1E7;
+  color: #AAD1E7;
+  transition: all 0.3s ease;
+}
+
+section.text-center.mt-5 a.btn:hover {
+  background-color: #AAD1E7;
+  color: #1C2833;
+}
+
+
+/* ========== Responsives Verhalten ========== */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
   }
-  
-  body::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: -1;
-  }
-  
-  /* Navigation */
-  .navbar-nav .nav-link {
-    color: #AAD1E7;
-    transition: 0.3s;
-  }
-  
-  .navbar-nav .nav-link:hover {
-    color: #161f2e;
-  }
-  
-  /* Karten (z. B. Länder) */
-  .card {
-    background: #AAD1E7;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s;
-  }
-  
-  .card:hover {
-    transform: scale(1.02);
-  }
-  
-  /* Footer */
-  footer .nav-link {
-    color: #AAD1E7;
-    transition: 0.3s;
-  }
-  
-  footer .nav-link:hover {
-    color: #284F8F;
-  }
-  
-  /* Tabellencontainer */
+
   .table-container {
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 1rem;
+    flex-direction: column;
   }
-  
-  /* Tabelle */
-  table {
-    width: 100%;
-    max-width: 1000px;
-    background: #AAD1E7;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  }
-  
+
   th, td {
-    padding: 0.8rem;
-    text-align: center;
+    font-size: 0.9rem;
+    padding: 0.6rem;
   }
-  
-  th {
-    background: #284F8F;
-    color: white;
-  }
-  
-  td {
-    color: #222;
-  }
-  
-  tbody tr:hover {
-    background: rgba(40, 79, 143, 0.1);
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    body {
-      background-attachment: scroll;
-    }
-  
-    .table-container {
-      padding: 1rem;
-      flex-direction: column;
-    }
-  }
-  
+}
