@@ -1,69 +1,72 @@
 <!DOCTYPE html>
-<html dir="auto" lang="de">
+<html lang="de" dir="auto">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="iRoberTy/planetpulse.ico">
-    <title>CO₂-Emissionen nach Ländern</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="PlanetPulse.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="planetpulse.ico" />
+  <title>CO₂-Emissionen</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="PlanetPulse.css" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand">🌍 PlanetPulse</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="PlanetPulse.html">Pulse</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">CO<sub>2</sub>-Emissionen</a></li>
-                    <li class="nav-item"><a class="nav-link" href="PlanetDead.html" target="_blank">Bedrohung des Lebens</a></li>
-                    <li class="nav-item"><a class="nav-link" href="PlanetHelp.html">Was kannst DU tun?</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <main class="container my-5">
-        <div class="table-container">
-            <h2 class="text-center">CO₂-Emissionen nach Ländern</h2>
-            <table id="co2-table" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Land</th>
-                        <th>CO₂ (in Mio. Tonnen)</th>
-                        <th>Welt-%</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>China</td><td>11.535</td><td>30,3</td></tr>
-                    <tr><td>USA</td><td>5.107</td><td>13,4</td></tr>
-                    <tr><td>Indien</td><td>2.597</td><td>6,8</td></tr>
-                    <tr><td>EU</td><td>2.287</td><td>6,0</td></tr>
-                    <tr><td>Russland</td><td>1.792</td><td>4,7</td></tr>
-                    <tr><td>Japan</td><td>1.162</td><td>3,1</td></tr>
-                    <tr><td>Iran</td><td>780</td><td>2,0</td></tr>
-                    <tr><td>Saudi-Arabien</td><td>635</td><td>1,7</td></tr>
-                    <tr><td>Südkorea</td><td>611</td><td>1,6</td></tr>
-                    <tr><td>Indonesien</td><td>588</td><td>1,5</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </main>
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4 mt-5">
-        <div class="container text-center">
-            <ul class="nav justify-content-center mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Spenden</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Wissen</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Kontakt</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Impressum</a></li>
-            </ul>
-            <p class="mb-0">&copy; 2025 PlanetPulse SE</p>
-        </div>
-    </footer>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #284F8F;">
+    <div class="container">
+      <a class="navbar-brand">🌍 PlanetPulse</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="PlanetPulse.html">Pulse</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">CO<sub>2</sub>-Emissionen</a></li>
+          <li class="nav-item"><a class="nav-link" href="PlanetDead.html" target="_blank">Bedrohung des Lebens</a></li>
+          <li class="nav-item"><a class="nav-link" href="PlanetHelp.html">Was kannst DU tun?</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hauptinhalt -->
+  <main class="container py-5">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold text-white">Globale CO₂-Emissionen</h2>
+      <p class="text-light">Vergleich der Emissionen nach Ländern und Unternehmen.</p>
+    </div>
+
+    <!-- Filter Buttons (landen im späteren React-Teil) -->
+    <div class="d-flex justify-content-center gap-3 mb-4">
+      <button class="btn btn-outline-light filter-btn" data-type="all">Alles anzeigen</button>
+      <button class="btn btn-outline-light filter-btn" data-type="countries">Nur Länder</button>
+      <button class="btn btn-outline-light filter-btn" data-type="companies">Nur Unternehmen</button>
+    </div>
+
+    <!-- React-kompatibles Root-Element für dynamische Tabelle -->
+    <div id="co2-table-root" class="table-container"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+      <ul class="nav justify-content-center mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Spenden</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Kontakt</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-light">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Impressum</a></li>
+      </ul>
+      <p class="mb-0">&copy; 2025 PlanetPulse SE</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="co2grid.jsx" type="text/babel"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script src="co2grid.jsx"></script>
+
 </body>
 </html>

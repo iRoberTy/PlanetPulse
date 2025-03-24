@@ -1,115 +1,97 @@
-/* Allgemeine Abstände */
-.py-3 {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-}
-
-.my-4 {
-    margin-top: 1.5rem !important;
-    margin-bottom: 1.5rem !important;
-}
-
-/* Navigation Hover-Effekt */
-.navbar-nav .nav-link {
-    color: white;
-    transition: color 0.3s ease-in-out;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #ffd700; /* Goldener Hover-Effekt */
-}
-
-/* Karten (z.B. Infoboxen) */
-.card {
-    transition: transform 0.3s;
-    background: rgba(255, 255, 255, 0.85); /* Leicht transparente Karten */
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card:hover {
-    transform: scale(1.05); /* Beim Hover leicht vergrößern */
-}
-
-/* Footer-Links */
-footer .nav-link {
-    opacity: 0.9;
-    color: white;
-    transition: opacity 0.3s ease-in-out;
-}
-
-footer .nav-link:hover {
-    opacity: 1;
-    color: #ffd700;
-}
-
-/* Hintergrundbild der Website */
+/* Layout */
 body {
-    background-image: url('Planet.webp');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white; /* Standardfarbe für besseren Kontrast */
+    background: url('Planet.webp') center/cover fixed no-repeat;
+    color: white;
     font-family: Arial, sans-serif;
     position: relative;
-}
-
-/* Abdunklung für bessere Lesbarkeit */
-body::before {
+    margin: 0;
+  }
+  
+  body::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Abdunklung für bessere Lesbarkeit */
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
     z-index: -1;
-}
-
-/* Tabellen-Styling */
-.table-container {
+  }
+  
+  /* Navigation */
+  .navbar-nav .nav-link {
+    color: #AAD1E7;
+    transition: 0.3s;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #161f2e;
+  }
+  
+  /* Karten (z. B. Länder) */
+  .card {
+    background: #AAD1E7;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Footer */
+  footer .nav-link {
+    color: #AAD1E7;
+    transition: 0.3s;
+  }
+  
+  footer .nav-link:hover {
+    color: #284F8F;
+  }
+  
+  /* Tabellencontainer */
+  .table-container {
+    padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.5); /* Leicht dunkler Hintergrund für Kontrast */
-    border-radius: 10px;
-}
-
-table {
-    width: 90%;
-    max-width: 1200px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
+  }
+  
+  /* Tabelle */
+  table {
+    width: 100%;
+    max-width: 1000px;
+    background: #AAD1E7;
+    border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Tabellen-Textfarbe */
-th, td {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  th, td {
+    padding: 0.8rem;
     text-align: center;
-    padding: 15px;
-    color: black;
-}
-
-th {
-    background-color: #222;
+  }
+  
+  th {
+    background: #284F8F;
     color: white;
-}
-
-/* Hover-Effekt für Tabellenreihen */
-tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+  }
+  
+  td {
+    color: #222;
+  }
+  
+  tbody tr:hover {
+    background: rgba(40, 79, 143, 0.1);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
     body {
-        background-attachment: scroll;
+      background-attachment: scroll;
     }
-
+  
     .table-container {
-        height: auto;
+      padding: 1rem;
+      flex-direction: column;
     }
-}
+  }
+  
