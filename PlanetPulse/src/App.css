@@ -40,3 +40,99 @@
 .read-the-docs {
   color: #888;
 }
+/* Layout */
+body {
+  background: url('Planet.webp') center/cover fixed no-repeat;
+  color: white;
+  font-family: Arial, sans-serif;
+  position: relative;
+  margin: 0;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+/* Navigation */
+.navbar-nav .nav-link {
+  color: #AAD1E7;
+  transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #161f2e;
+}
+
+/* Karten (z. B. Länder) */
+.card {
+  background: #AAD1E7;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Footer */
+footer .nav-link {
+  color: #AAD1E7;
+  transition: 0.3s;
+}
+
+footer .nav-link:hover {
+  color: #284F8F;
+}
+
+/* Tabellencontainer */
+.table-container {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tabelle */
+table {
+  width: 100%;
+  max-width: 1000px;
+  background: #AAD1E7;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+  padding: 0.8rem;
+  text-align: center;
+}
+
+th {
+  background: #284F8F;
+  color: white;
+}
+
+td {
+  color: #222;
+}
+
+tbody tr:hover {
+  background: rgba(40, 79, 143, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .table-container {
+    padding: 1rem;
+    flex-direction: column;
+  }
+}
