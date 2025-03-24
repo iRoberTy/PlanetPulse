@@ -15,6 +15,10 @@ body::before {
   z-index: -1;
 }
 
+h1 {
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+}
+
 /* ========== Navigation ========== */
 .navbar-nav .nav-link {
   color: #AAD1E7;
