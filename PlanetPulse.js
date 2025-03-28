@@ -1,4 +1,3 @@
-<script>
 const data = [
 { type: "country", label: "China", emissions: 11472000000 },
 { type: "country", label: "USA", emissions: 5007000000 },
@@ -77,5 +76,3 @@ renderTable();
 }
 
 renderTable();
-
-</script>
