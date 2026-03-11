@@ -140,10 +140,10 @@
                 <table class="table table-dark table-hover align-middle">
                     <thead>
                         <tr>
-                          <th>Name</th>
+                          <th onclick="sortBy('label', this)" style="cursor:pointer">Name</th>
                           <th>Typ</th>
-                          <th>Tonnen</th>
-                          <th>Aktion</th>
+                          <th onclick="sortBy('emissions', this)" style="cursor:pointer">Tonnen</th>
+                          <th id="th-actions" style="display:none;">Aktion</th>
                         </tr>
                     </thead>
                     <tbody id="pending-body">

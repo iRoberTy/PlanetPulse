@@ -29,15 +29,32 @@ function renderTable(filter = currentFilter, btn = null) {
     }
 
     const body = document.getElementById("table-body");
-    const thActions = document.getElementById("th-actions");
     if (!body) return;
-    
-    // Prüfen, ob ein Experte (egal welche Rolle) angemeldet ist
-    const isLoggedIn = document.getElementById("scientist-area").style.display === "block";
-    if (thActions) thActions.style.display = isLoggedIn ? "table-cell" : "none";
 
+    // 1. Daten filtern
+    let filtered = filter === "all" ? [...data] : data.filter(e => e.type === filter);
+
+    // 2. Daten sortieren (Falls ein Key gesetzt ist)
+    if (sortKey) {
+        filtered.sort((a, b) => {
+            let valA = a[sortKey];
+            let valB = b[sortKey];
+
+            if (typeof valA === 'string') {
+                // String-Vergleich für Namen (beachtet Umlaute)
+                return sortDirection === "asc" 
+                    ? valA.localeCompare(valB) 
+                    : valB.localeCompare(valA);
+            } else {
+                // Numerischer Vergleich für Emissionen
+                return sortDirection === "asc" ? valA - valB : valB - valA;
+            }
+        });
+    }
+
+    // 3. Tabelle rendern
+    const isLoggedIn = document.getElementById("scientist-area").style.display === "block";
     body.innerHTML = "";
-    let filtered = filter === "all" ? data : data.filter(e => e.type === filter);
 
     filtered.forEach(entry => {
         let row = `<tr>
@@ -197,4 +214,22 @@ async function deleteEntry(id) {
         await fetch(`/api/emissions/${id}`, { method: 'DELETE' })) {
         fetchPending();
     }
+}
+
+function sortBy(key, th) {
+    // Falls auf die gleiche Spalte geklickt wird: Richtung umkehren
+    if (sortKey === key) {
+        sortDirection = sortDirection === "asc" ? "desc" : "asc";
+    } else {
+        sortKey = key;
+        sortDirection = "asc";
+    }
+
+    // Visuelles Feedback: Alle anderen Pfeile entfernen und beim aktuellen Header setzen
+    document.querySelectorAll("#co2-table th").forEach(header => {
+        header.innerText = header.innerText.replace(" ▲", "").replace(" ▼", "");
+    });
+    th.innerText += sortDirection === "asc" ? " ▲" : " ▼";
+
+    renderTable(); // Tabelle mit neuen Sortier-Einstellungen neu zeichnen
 }
