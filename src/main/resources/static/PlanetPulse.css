@@ -241,6 +241,10 @@ section.text-center.mt-5 a.btn:hover {
     outline: none;
 }
 
+#scientist-area {
+    display: none !important; /* Verhindert die Anzeige beim Laden */
+}
+
 #scientist-area h2 {
     color: #aad1e7; /* Ein helleres Blau für den Kontrast */
     font-weight: bold;

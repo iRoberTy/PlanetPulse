@@ -1,2 +1,69 @@
 #! on
 https://iroberty.github.io/PlanetPulse/
+
+🌍 PlanetPulse - Like Hero To Zero
+Projekt: Entwicklung eines Web-Frontends für das Nachhaltigkeitsprojekt „Like Hero To Zero“
+
+Kontext: Fallstudie im Modul Webentwicklung (IPWA02) – IU Internationale Hochschule
+
+Status: Prototyp (Ready for Deployment)
+
+📖 Projektbeschreibung
+PlanetPulse ist eine moderne Web-Applikation, die im Auftrag einer PR-Agentur für Naturverbände entwickelt wurde. Ziel ist es, die weltweiten CO₂-Emissionen transparent zu machen und Bürgern sowie Wissenschaftlern eine Plattform zur Datenanalyse und -pflege zu bieten.
+
+Kernfunktionen (User Stories)
+MUST 1: Öffentlich zugängliche Datenvisualisierung der CO₂-Emissionen von Ländern und Unternehmen (ohne Login).
+
+MUST 2: Experten-Backend für registrierte Wissenschaftler:innen zum Hinzufügen und Korrigieren von Klimadaten (mit Login).
+
+COULD: Integrierter Freigabe-Workflow für Herausgeber:innen zur Qualitätssicherung (Vier-Augen-Prinzip).
+
+🛠 Technologiestack
+Backend: Java 17 mit Spring Boot 4.0.3
+
+Persistenz: Spring Data JPA mit Hibernate (ORM)
+
+Datenbank: MySQL 8.0
+
+Frontend: HTML5, CSS3 (Glassmorphism Design), JavaScript (Vanilla, asynchron), Bootstrap 5.3
+
+Architektur: RESTful API, MVC-Pattern (Spring Beans)
+
+🏗 Architektur & Design
+Die Anwendung folgt einer klassischen Schichtenarchitektur (Controller, Service, Repository, Entity).
+
+Datenbank-Schema
+Die zentrale Tabelle emissions nutzt folgende Struktur:
+
+id: Primärschlüssel (Auto-Increment)
+
+label: Name des Emittenten (Unique Constraint zur Datenintegrität)
+
+type: Kategorisierung (Country/Company)
+
+emissions: CO₂-Ausstoß in Tonnen
+
+approved: Status-Flag für den Freigabe-Workflow
+
+🚀 Installation & Setup
+Repository klonen:
+
+Bash
+git clone https://github.com/iroberty/PlanetPulse.git
+Datenbank vorbereiten: Erstelle eine MySQL-Datenbank namens planetpulse_db.
+
+Konfiguration: Passe die src/main/resources/application.properties an deine lokale Umgebung an:
+
+Properties
+spring.datasource.url=jdbc:mysql://localhost:3306/planetpulse_db
+spring.datasource.username=DEIN_USER
+spring.datasource.password=DEIN_PASSWORT
+Starten:
+
+Bash
+./mvnw spring-boot:run
+
+👤 Autor
+Robert M. Informatik
+
+IU Internationale Hochschule 2026

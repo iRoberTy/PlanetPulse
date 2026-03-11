@@ -9,47 +9,55 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/emissions")
-@CrossOrigin(origins = "*") // Erlaubt den Zugriff vom Frontend
 public class EmissionController {
 
     @Autowired
     private EmissionRepository repository;
 
-    // MUST 1: Bürger sehen NUR freigegebene Daten
+    // Öffentliche Daten (Nur freigegebene)
     @GetMapping
-    public List<EmissionEntry> getApprovedEmissions() {
+    public List<EmissionEntry> getPublicData() {
         return repository.findByApprovedTrue();
     }
 
-    // Herausgeber sieht ausstehende Daten
+    // Herausgeber-Daten (Nur unbestätigte)
     @GetMapping("/pending")
-    public List<EmissionEntry> getPendingEmissions() {
-    return repository.findByApprovedFalse();
+    public List<EmissionEntry> getPendingData() {
+        return repository.findByApprovedFalse();
     }
 
-    @PutMapping("/{id}")
-    public EmissionEntry updateEmission(@PathVariable Long id, @RequestBody EmissionEntry newDetails) {
-        return repository.findById(id).map(entry -> {
-            entry.setLabel(newDetails.getLabel());
-            entry.setType(newDetails.getType());
-            entry.setEmissions(newDetails.getEmissions());
-            entry.setApproved(false); // Nach Korrektur muss erneut freigegeben werden!
-            return repository.save(entry);
-        }).orElseThrow(() -> new RuntimeException("Eintrag nicht gefunden"));
-    }
-
-    // MUST 2: Neuen Datensatz anlegen (Wissenschaftler-Sicht)
+    // Neuer Eintrag (Immer unbestätigt)
     @PostMapping
-    public EmissionEntry addEmission(@RequestBody EmissionEntry entry) {
-        // Security-Check: Hier würde später die Prüfung der Rechte erfolgen
+    public EmissionEntry createEntry(@RequestBody EmissionEntry entry) {
+        entry.setApproved(false);
         return repository.save(entry);
     }
 
+    // Korrektur bestehender Daten (Setzt Status zurück auf unbestätigt)
+    @PutMapping("/{id}")
+    public EmissionEntry updateEntry(@PathVariable Long id, @RequestBody EmissionEntry details) {
+        EmissionEntry entry = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("ID nicht gefunden"));
+        
+        entry.setLabel(details.getLabel());
+        entry.setEmissions(details.getEmissions());
+        entry.setType(details.getType());
+        entry.setApproved(false); // Erneute Prüfung erforderlich
+        
+        return repository.save(entry);
+    }
+
+    // Freigabe durch Herausgeber
+    @PutMapping("/{id}/approve")
+    public EmissionEntry approveEntry(@PathVariable Long id) {
+        EmissionEntry entry = repository.findById(id).orElseThrow();
+        entry.setApproved(true);
+        return repository.save(entry);
+    }
+
+    // Löschen (Ablehnung)
     @DeleteMapping("/{id}")
     public void deleteEntry(@PathVariable Long id) {
-        if (!repository.existsById(id)) {
-            throw new RuntimeException("Eintrag mit ID " + id + " existiert nicht.");
-        }
         repository.deleteById(id);
     }
 }

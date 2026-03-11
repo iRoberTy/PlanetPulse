@@ -1,27 +1,34 @@
 package de.iu.planetpulse.controller;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    @Value("${admin.username}")
-    private String correctUsername;
-
-    @Value("${admin.password}")
-    private String correctPassword;
-
     @PostMapping("/login")
     public Map<String, Object> login(@RequestBody Map<String, String> credentials) {
         String username = credentials.get("username");
         String password = credentials.get("password");
+        
+        Map<String, Object> response = new HashMap<>();
 
-        if (correctUsername.equals(username) && correctPassword.equals(password)) {
-            return Map.of("success", true);
+        // Logik für Rollentrennung (Prototyp-Modus)
+        if ("admin".equals(username) && "admin123".equals(password)) {
+            response.put("success", true);
+            response.put("role", "EDITOR");
+        } 
+        else if ("science".equals(username) && "science123".equals(password)) {
+            response.put("success", true);
+            response.put("role", "SCIENTIST");
+        } 
+        else {
+            response.put("success", false);
+            response.put("role", null);
         }
-        return Map.of("success", false);
+
+        return response;
     }
 }
