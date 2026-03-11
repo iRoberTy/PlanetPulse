@@ -177,6 +177,99 @@ section.text-center.mt-5 a.btn:hover {
   color: #1C2833;
 }
 
+/* Glassmorphism für den Wissenschaftler-Bereich */
+#login-section {
+    background: rgba(10, 31, 68, 0.6); /* Semi-transparentes Dunkelblau */
+    backdrop-filter: blur(12px);       /* Milchglas-Effekt */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+#login-section h2 {
+    color: #aad1e7;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+/* Interaktive Glow-Effekte für Inputs */
+#login-section .form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #89cff0;
+    box-shadow: 0 0 10px rgba(137, 207, 240, 0.5);
+    color: white;
+}
+
+/* Glassmorphism Unified Design */
+#login-section, #scientist-area {
+    background: rgba(10, 31, 68, 0.65); /* Dunkleres Blau mit 65% Transparenz */
+    backdrop-filter: blur(15px);       /* Starker Blur-Effekt */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(170, 209, 231, 0.2);
+    border-radius: 15px;
+    padding: 3rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    margin-top: 3rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#login-section h2, #scientist-area h2 {
+    color: #aad1e7;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    text-shadow: 0 0 10px rgba(170, 209, 231, 0.3);
+}
+
+/* Konsistente Form-Elemente */
+#login-section .form-control, 
+#scientist-area .form-control, 
+#scientist-area .form-select {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(170, 209, 231, 0.3);
+    color: white;
+    padding: 0.75rem;
+}
+
+#login-section .form-control:focus, 
+#scientist-area .form-control:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #aad1e7;
+    box-shadow: 0 0 15px rgba(170, 209, 231, 0.4);
+    outline: none;
+}
+
+#scientist-area h2 {
+    color: #aad1e7; /* Ein helleres Blau für den Kontrast */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Eingabefelder anpassen, damit sie zum Look passen */
+#scientist-area .form-control, #scientist-area .form-select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+#scientist-area .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Button-Styling */
+.btn-primary {
+    background-color: #284f8f;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover {
+    background-color: #3a6ab3;
+    transform: translateY(-2px);
+}
+
 
 /* ========== Responsives Verhalten ========== */
 @media (max-width: 768px) {
